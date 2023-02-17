@@ -1,17 +1,28 @@
 <mvc:View controllerName="appviewcatalog.controller.Main"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
+    xmlns="sap.m" xmlns:f="sap.f">
     <Page id="page" title="{i18n>title}">
         <content>
-        <Panel headerText="Tipos de Vista" class="sapUiMediumMargin" width="auto">
-            <VBox class="sapUiTinyMargin">
-                <GenericTile header="Soy un Tile" press="onPressTile">
-                    <TileContent >
-                        <Label text="Soy la descripción del tile" wrapping="true"/>
-                    </TileContent>
-                </GenericTile>                    
-            </VBox>
-        </Panel>
+        <ScrollContainer width="100%" height="100%" vertical="true">
+            <Panel headerText="Tipos de Vista" class="sapUiMediumMargin" width="auto">
+                <f:GridContainer class="sapuiSmallMargin" items="{mTiles>/TileCollection}">
+                    <f:layout>
+                        <f:GridContainerSettings rowSize="84px" columnSize="84px" gap="8px" />
+                    </f:layout>
+                    <f:layoutS>
+                        <f:GridContainerSettings rowSize="70px" columnSize="70px" gap="8px" />
+                    </f:layoutS>
+                    <GenericTile header="Soy un Tile" press="onPressTile" >
+                        <layoutData>
+                            <f:GridContainerItemLayoutData minRows="2" columns="2" />
+                        </layoutData>
+                        <TileContent >
+                            <Label text="Soy la descripción del tile" wrapping="true"/>
+                        </TileContent>
+                    </GenericTile>                    
+                </f:GridContainer>
+            </Panel>
+        </ScrollContainer >
         </content>
     </Page>
 </mvc:View>

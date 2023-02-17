@@ -1,0 +1,34 @@
+{
+    "TileCollection" : [
+        {
+            "Title"   : "ViewList",
+            "Description": "Visualización de colección datos",
+            "Icon"    : "sap-icon://list",
+            "view"    : "ViewList"
+        },
+        {
+            "Title"   : "ViewList",
+            "Description": "Visualización de colección datos",
+            "Icon"    : "sap-icon://list",
+            "view"    : "ViewList"
+        },
+        {
+            "Title"   : "ViewList",
+            "Description": "Visualización de colección datos",
+            "Icon"    : "sap-icon://list",
+            "view"    : "ViewList"
+        },
+        {
+            "Title"   : "ViewList",
+            "Description": "Visualización de colección datos",
+            "Icon"    : "sap-icon://list",
+            "view"    : "ViewList"
+        },
+        {
+            "Title"   : "ViewList",
+            "Description": "Visualización de colección datos",
+            "Icon"    : "sap-icon://list",
+            "view"    : "ViewList"
+        }
+    ]
+}

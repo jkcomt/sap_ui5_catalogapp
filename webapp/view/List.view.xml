@@ -4,8 +4,26 @@
     <Page title="Vista List">
         <content>
             <VBox class="sapUiContentPadding sapUiSmallMargin">
-                <List headerText="Productos" items="{Products>/}" mode="SingleSelectMaster" itemPress="onPressProduct">
-                    <StandardListItem title="{Products>Name}" description="{Products>Description}" icon="{Products>ProductPicUrl}" type="Active" />
+                <List 
+                    items="{path:'mProducts>/ProductCollection'}" 
+                    mode="SingleSelectMaster" 
+                    itemPress="onPressProduct" 
+                    growing="true" growingThreshold="10" 
+                    growingScrollToLoad="false">
+                    <!-- Seccion header toolbar -->
+                    <headerToolbar>
+                        <OverflowToolbar >
+                            <Title text="Productos" />
+                            <ToolbarSpacer/>
+                            <Button icon="sap-icon://settings"/>
+                        </OverflowToolbar>
+                    </headerToolbar>
+
+                    <!-- Sección Items -->
+                    <StandardListItem title="{mProducts>Name}" 
+                        description="{mProducts>Description}" 
+                        icon="{mProducts>ProductPicUrl}" 
+                        type="Active" />
                 </List>
             </VBox>
         </content>

@@ -29,6 +29,16 @@
                     "icon": ""
                 }
             }
+        },
+        "dataSources": {
+            "products-srv" : {
+                "uri" : "localservice/db.data.json",
+                "type": "JSON"
+            },
+            "tiles-srv" : {
+                "uri" : "localservice/tiles.config.json",
+                "type": "JSON"
+            }
         }
     },
     "sap.ui": {
@@ -72,6 +82,14 @@
                 "settings": {
                     "bundleName": "appviewcatalog.i18n.i18n"
                 }
+            },
+            "mProducts": {
+                "type": "sap.ui.model.json.JSONModel",
+                "dataSource": "products-srv"
+            },
+            "mTiles": {
+                "type": "sap.ui.model.json.JSONModel",
+                "dataSource": "tiles-srv"
             }
         },
         "resources": {
