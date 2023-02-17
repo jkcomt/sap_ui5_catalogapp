@@ -1,0 +1,13 @@
+<mvc:View controllerName="appviewcatalog.controller.List"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page title="Vista List">
+        <content>
+            <VBox class="sapUiContentPadding sapUiSmallMargin">
+                <List headerText="Productos" items="{Products>/}" mode="SingleSelectMaster" itemPress="onPressProduct">
+                    <StandardListItem title="{Products>Name}" description="{Products>Description}" icon="{Products>ProductPicUrl}" type="Active" />
+                </List>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>
