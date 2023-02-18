@@ -29,6 +29,12 @@
                     "icon": ""
                 }
             }
+        },
+        "dataSources": {
+            "products-srv" : {
+                "uri" : "localservice/db.data.json",
+                "type": "JSON"
+            }
         }
     },
     "sap.ui": {
@@ -72,6 +78,10 @@
                 "settings": {
                     "bundleName": "appviewcatalog.i18n.i18n"
                 }
+            },
+            "mProduct": {
+                "type": "sap.ui.model.json.JSONModel",
+                "dataSource": "products-srv"
             }
         },
         "resources": {
