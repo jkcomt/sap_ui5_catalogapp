@@ -12,12 +12,12 @@
                     <f:layoutS>
                         <f:GridContainerSettings rowSize="70px" columnSize="70px" gap="8px" />
                     </f:layoutS>
-                    <GenericTile header="Soy un Tile" press="onPressTile" >
+                    <GenericTile header="{mTiles>Title}" press="onPressTile" headerImage="{mTiles>Icon}">
                         <layoutData>
-                            <f:GridContainerItemLayoutData minRows="2" columns="2" />
+                            <f:GridContainerItemLayoutData minRows="2" columns="2"  />
                         </layoutData>
                         <TileContent >
-                            <Label text="Soy la descripción del tile" wrapping="true"/>
+                            <Label text="{mTiles>Description}" wrapping="true"/>
                         </TileContent>
                     </GenericTile>                    
                 </f:GridContainer>
