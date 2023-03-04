@@ -4,7 +4,13 @@
     <Page title="Vista List">
         <content>
             <VBox class="sapUiContentPadding sapUiSmallMargin">
+               
+                <OverflowToolbar>
+                    <SearchField liveChange=".onSearch" width="100%"/>
+                </OverflowToolbar>
+             
                 <List 
+                    id="listProducts"
                     items="{path:'mProduct>/ProductCollection'}" 
                     mode="SingleSelectMaster" 
                     itemPress="onPressProduct" 
