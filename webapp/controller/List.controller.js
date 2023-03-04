@@ -10,11 +10,12 @@ sap.ui.define([
         "use strict";
 
         return Controller.extend("appviewcatalog.controller.List", {
-            onInit: function () {               
+            onInit: function () {
+                console.log("soy el evento onInit del controller List");             
             },
 
             onPressProduct: function(oEvent){
-                let oItem = oEvent.getSource().getSelectedItem().getBindingContext("mProducts").getObject();
+                let oItem = oEvent.getSource().getSelectedItem().getBindingContext("mProduct").getObject();
                 MessageToast.show(oItem.Name);
             }
         });

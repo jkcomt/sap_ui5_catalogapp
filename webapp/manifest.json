@@ -83,11 +83,11 @@
                     "bundleName": "appviewcatalog.i18n.i18n"
                 }
             },
-            "mProducts": {
+            "mProduct": {
                 "type": "sap.ui.model.json.JSONModel",
                 "dataSource": "products-srv"
             },
-            "mTiles": {
+            "mTile": {
                 "type": "sap.ui.model.json.JSONModel",
                 "dataSource": "tiles-srv"
             }
@@ -123,6 +123,13 @@
                     "target": [
                         "TargetList"
                     ]
+                },
+                {
+                    "name": "ViewForm",
+                    "pattern": "ViewForm",
+                    "target": [
+                        "TargetForm"
+                    ]
                 }
             ],
             "targets": {
@@ -139,6 +146,13 @@
                     "clearControlAggregation": false,
                     "viewId": "List",
                     "viewName": "List"
+                },
+                "TargetForm": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Form",
+                    "viewName": "Form"
                 }
             }
         },

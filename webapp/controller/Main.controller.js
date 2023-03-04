@@ -13,9 +13,10 @@ sap.ui.define([
 
             },
             onPressTile: function(oEvent){
-                let viewName = oEvent.getSource().getBindingContext("mTiles").getObject().view;
+                let viewRoute = oEvent.getSource().getBindingContext("mTile").getObject().view;
+                
                 let oRouter = UIComponent.getRouterFor(this);
-                oRouter.navTo(viewName);
+                oRouter.navTo(viewRoute);
             }
         });
     });

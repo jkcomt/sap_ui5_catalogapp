@@ -1,34 +1,16 @@
 {
-    "TileCollection" : [
+    "TileCollection":[
         {
-            "Title"   : "ViewList",
-            "Description": "Visualización de colección datos",
-            "Icon"    : "sap-icon://list",
-            "view"    : "ViewList"
+            "Title":"View List",
+            "Description":"Visualización de Colección de Items",
+            "Icon": "sap-icon://list",
+            "view":"ViewList"
         },
         {
-            "Title"   : "ViewList",
-            "Description": "Visualización de colección datos",
-            "Icon"    : "sap-icon://list",
-            "view"    : "ViewList"
-        },
-        {
-            "Title"   : "ViewList",
-            "Description": "Visualización de colección datos",
-            "Icon"    : "sap-icon://list",
-            "view"    : "ViewList"
-        },
-        {
-            "Title"   : "ViewList",
-            "Description": "Visualización de colección datos",
-            "Icon"    : "sap-icon://list",
-            "view"    : "ViewList"
-        },
-        {
-            "Title"   : "ViewList",
-            "Description": "Visualización de colección datos",
-            "Icon"    : "sap-icon://list",
-            "view"    : "ViewList"
+            "Title":"View Form",
+            "Description":"Visualización de Formulario",
+            "Icon": "sap-icon://list",
+            "view":"ViewForm"
         }
     ]
 }

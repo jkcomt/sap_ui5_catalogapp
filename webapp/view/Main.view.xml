@@ -4,25 +4,26 @@
     <Page id="page" title="{i18n>title}">
         <content>
         <ScrollContainer width="100%" height="100%" vertical="true">
-            <Panel headerText="Tipos de Vista" class="sapUiMediumMargin" width="auto">
-                <f:GridContainer class="sapuiSmallMargin" items="{mTiles>/TileCollection}">
-                    <f:layout>
-                        <f:GridContainerSettings rowSize="84px" columnSize="84px" gap="8px" />
-                    </f:layout>
-                    <f:layoutS>
-                        <f:GridContainerSettings rowSize="70px" columnSize="70px" gap="8px" />
-                    </f:layoutS>
-                    <GenericTile header="{mTiles>Title}" press="onPressTile" headerImage="{mTiles>Icon}">
+        <Panel headerText="Tipos de Vista" class="sapUiMediumMargin" width="auto">
+            <f:GridContainer class="sapuiSmallMargin" items="{mTile>/TileCollection}">
+                <f:layout>
+                    <f:GridContainerSettings rowSize="84px" columnSize="84px" gap="8px" />
+                </f:layout>
+                <f:layoutS>
+                    <f:GridContainerSettings rowSize="70px" columnSize="70px" gap="8px" />
+                </f:layoutS>
+                    <GenericTile header="{mTile>Title}" press="onPressTile" headerImage="{mTile>Icon}">
                         <layoutData>
-                            <f:GridContainerItemLayoutData minRows="2" columns="2"  />
+                            <f:GridContainerItemLayoutData rows="2" columns="2" />
                         </layoutData>
-                        <TileContent >
-                            <Label text="{mTiles>Description}" wrapping="true"/>
-                        </TileContent>
-                    </GenericTile>                    
-                </f:GridContainer>
-            </Panel>
-        </ScrollContainer >
+                    <TileContent >
+                        <Label text="{mTile>Description}" wrapping="true"/>
+                    </TileContent>
+                </GenericTile>
+            </f:GridContainer>
+        </Panel>
+        </ScrollContainer>
         </content>
+
     </Page>
 </mvc:View>
