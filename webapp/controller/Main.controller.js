@@ -12,9 +12,11 @@ sap.ui.define([
             onInit: function () {
 
             },
-            onPressTile: function(){
+            onPressTile: function(oEvent){
+                let viewRoute = oEvent.getSource().getBindingContext("mTile").getObject().view;
+                
                 let oRouter = UIComponent.getRouterFor(this);
-                oRouter.navTo("ViewList");
+                oRouter.navTo(viewRoute);
             }
         });
     });

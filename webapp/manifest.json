@@ -34,6 +34,10 @@
             "products-srv" : {
                 "uri" : "localservice/db.data.json",
                 "type": "JSON"
+            },
+            "tiles-srv" : {
+                "uri" : "localservice/tiles.config.json",
+                "type": "JSON"
             }
         }
     },
@@ -82,6 +86,10 @@
             "mProduct": {
                 "type": "sap.ui.model.json.JSONModel",
                 "dataSource": "products-srv"
+            },
+            "mTile": {
+                "type": "sap.ui.model.json.JSONModel",
+                "dataSource": "tiles-srv"
             }
         },
         "resources": {
@@ -115,6 +123,13 @@
                     "target": [
                         "TargetList"
                     ]
+                },
+                {
+                    "name": "ViewForm",
+                    "pattern": "ViewForm",
+                    "target": [
+                        "TargetForm"
+                    ]
                 }
             ],
             "targets": {
@@ -131,6 +146,13 @@
                     "clearControlAggregation": false,
                     "viewId": "List",
                     "viewName": "List"
+                },
+                "TargetForm": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Form",
+                    "viewName": "Form"
                 }
             }
         },
