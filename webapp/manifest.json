@@ -107,7 +107,10 @@
                 "viewPath": "appviewcatalog.view",
                 "controlAggregation": "pages",
                 "controlId": "app",
-                "clearControlAggregation": false
+                "clearControlAggregation": false,
+                "bypassed": {
+                    "target" : "TargetNotFound"
+                }
             },
             "routes": [
                 {
@@ -129,6 +132,13 @@
                     "pattern": "ViewForm",
                     "target": [
                         "TargetForm"
+                    ]
+                },
+                {
+                    "name": "ViewDetail",
+                    "pattern": "ViewDetail/{productId}",
+                    "target": [
+                        "TargetDetail"
                     ]
                 }
             ],
@@ -153,6 +163,20 @@
                     "clearControlAggregation": false,
                     "viewId": "Form",
                     "viewName": "Form"
+                },
+                "TargetDetail": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Detail",
+                    "viewName": "Detail"
+                },
+                "TargetNotFound": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "NotFound",
+                    "viewName": "NotFound"
                 }
             }
         },

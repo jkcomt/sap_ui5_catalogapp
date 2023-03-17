@@ -3,12 +3,13 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/m/MessageToast",
     "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator"
+    "sap/ui/model/FilterOperator",
+    "sap/ui/core/UIComponent"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller,JSONModel,MessageToast,Filter,FilterOperator) {
+    function (Controller,JSONModel,MessageToast,Filter,FilterOperator,UIComponent) {
         "use strict";
 
         return Controller.extend("appviewcatalog.controller.List", {
@@ -18,7 +19,14 @@ sap.ui.define([
 
             onPressProduct: function(oEvent){
                 let oItem = oEvent.getSource().getSelectedItem().getBindingContext("mProduct").getObject();
-                MessageToast.show(oItem.Name);
+                
+                let idxProduct = this.getView().getModel("mProduct").getData().ProductCollection.indexOf(oItem);
+                
+                let oRouter = UIComponent.getRouterFor(this);
+                oRouter.navTo("ViewDetail",{
+                    productId: idxProduct
+                })
+
             },
 
             onSearch: function(oEvent){
