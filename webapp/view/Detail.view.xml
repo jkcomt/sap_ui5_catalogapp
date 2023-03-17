@@ -18,14 +18,14 @@
                             <Title text="{mProduct>ProductId}"/>
                         </FlexBox>
                     </uxap:snappedHeading>
+                    <uxap:snappedContent>
+                        <Title text="{mProduct>Name} - {mProduct>Category}" wrapping="true"/>
+                    </uxap:snappedContent>
                     
                     <uxap:expandedContent>
                         <Title text="{mProduct>ProductId} - {mProduct>Name}" wrapping="true"/>
                     </uxap:expandedContent>
 
-                    <uxap:snappedContent>
-                        <Title text="{mProduct>Name} - {mProduct>Category}" wrapping="true"/>
-                    </uxap:snappedContent>
 
                 </uxap:ObjectPageDynamicHeaderTitle>
             </uxap:headerTitle>
