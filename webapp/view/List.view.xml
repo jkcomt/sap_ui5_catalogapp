@@ -1,9 +1,10 @@
 <mvc:View controllerName="appviewcatalog.controller.List"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
-    <Page title="Vista List">
+    <Page title="Vista List" showNavButton="true" navButtonPress="onNavBack">
         <content>
             <VBox class="sapUiContentPadding sapUiSmallMargin">
+                <!-- <Breadcrumbs id="navHistory"/> -->
                
                 <OverflowToolbar>
                     <SearchField liveChange=".onSearch" width="100%"/>

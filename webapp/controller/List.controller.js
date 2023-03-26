@@ -1,5 +1,5 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
+    "./Base.controller",
     "sap/ui/model/json/JSONModel",
     "sap/m/MessageToast",
     "sap/ui/model/Filter",
@@ -14,7 +14,8 @@ sap.ui.define([
 
         return Controller.extend("appviewcatalog.controller.List", {
             onInit: function () {
-                console.log("soy el evento onInit del controller List");             
+                // this.getNavHistory();
+                // this.setLinkstoBreadCumbs("navHistory");
             },
 
             onPressProduct: function(oEvent){
@@ -22,10 +23,9 @@ sap.ui.define([
                 
                 //obtener la posición del objeto en nuestra colección, ese será nuestro id
                 let idxProduct = this.getView().getModel("mProduct").getData().ProductCollection.indexOf(oItem);
-                let oRouter = UIComponent.getRouterFor(this);
-                oRouter.navTo("ViewDetail",{
+                this.navTo("ViewDetail",{
                     productId: idxProduct
-                });
+                })
             },
 
             onSearch: function(oEvent){

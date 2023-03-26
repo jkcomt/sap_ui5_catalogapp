@@ -7,7 +7,7 @@
 	busyIndicatorDelay="0"
     xmlns:uxap="sap.uxap"
     xmlns:layout="sap.ui.layout">
-    <Page title="Vista Detalle">        
+    <Page title="Vista Detalle" showNavButton="true" navButtonPress="onNavBack">        
         <uxap:ObjectPageLayout >
             <uxap:headerTitle>
                 <uxap:ObjectPageDynamicHeaderTitle>
