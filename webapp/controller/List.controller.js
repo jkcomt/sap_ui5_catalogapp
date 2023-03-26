@@ -1,15 +1,14 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
+    "./Base.controller",
     "sap/ui/model/json/JSONModel",
     "sap/m/MessageToast",
     "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator",
-    "sap/ui/core/UIComponent"
+    "sap/ui/model/FilterOperator"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller,JSONModel,MessageToast,Filter,FilterOperator,UIComponent) {
+    function (Controller,JSONModel,MessageToast,Filter,FilterOperator) {
         "use strict";
 
         return Controller.extend("appviewcatalog.controller.List", {
@@ -22,8 +21,7 @@ sap.ui.define([
                 
                 let idxProduct = this.getView().getModel("mProduct").getData().ProductCollection.indexOf(oItem);
                 
-                let oRouter = UIComponent.getRouterFor(this);
-                oRouter.navTo("ViewDetail",{
+                this.onNavTo("ViewDetail",{
                     productId: idxProduct
                 })
 
