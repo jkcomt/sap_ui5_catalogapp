@@ -31,13 +31,13 @@ sap.ui.define([
             }
         },
 
-        getNavHistory: function(){
-            let oHistory;
-            oHistory = History.getInstance();
-            let navHistory = oHistory.aHistory;
-            let oNavs = new JSONModel(navHistory);
-            this.getView().setModel(oNavs,"mNavHistory");
-        },
+        // getNavHistory: function(){
+        //     let oHistory;
+        //     oHistory = History.getInstance();
+        //     let navHistory = oHistory.aHistory;
+        //     let oNavs = new JSONModel(navHistory);
+        //     this.getView().setModel(oNavs,"mNavHistory");
+        // },
 
         // setLinkstoBreadCumbs: function(id){
         //     let breadCrumbs = this.getView().byId(id);
