@@ -1,10 +1,180 @@
-<mvc:View controllerName="appviewcatalog.controller.Form"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-        <content>
-            <Text text="Hola Mundo"/>
-        </content>
-
-    </Page>
+<mvc:View
+	controllerName="appviewcatalog.controller.Form"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+>
+	<Page
+		id="page"
+		title="{i18n>title}"
+	>
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<f:Form
+					id="FormChange354"
+					editable="true"
+				>
+					<f:title>
+						<core:Title text="Address"/>
+					</f:title>
+					<f:layout>
+						<f:ResponsiveGridLayout
+							labelSpanXL="3"
+							labelSpanL="3"
+							labelSpanM="3"
+							labelSpanS="12"
+							adjustLabelSpan="false"
+							emptySpanXL="4"
+							emptySpanL="4"
+							emptySpanM="4"
+							emptySpanS="0"
+							columnsXL="1"
+							columnsL="1"
+							columnsM="1"
+							singleContainerFullSize="false"
+						/>
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement label="Product ID">
+									<f:fields>
+										<Input
+											value="{
+											}"
+											id="producid"
+										/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Main Category - Category">
+									<f:fields>
+										<Input value="{
+										}"/>
+										<Input value="{
+										}">
+											<layoutData>
+												<l:GridData span="XL1 L2 M2 S4"/>
+											</layoutData>
+										</Input>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Name">
+									<f:fields>
+										<Input value=""/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Descripction">
+									<f:fields>
+										<Input value=""/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Supplier Name">
+									<f:fields>
+										<Input value="{
+										}"/>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+				<f:Form
+					id="FormChange355"
+					editable="true" class="sapUiSmallMarginTop"
+				>
+					<f:title>
+						<core:Title text="Weigh"/>
+					</f:title>
+					<f:layout>
+						<f:ResponsiveGridLayout
+							labelSpanXL="3"
+							labelSpanL="3"
+							labelSpanM="3"
+							labelSpanS="12"
+							adjustLabelSpan="false"
+							emptySpanXL="4"
+							emptySpanL="4"
+							emptySpanM="4"
+							emptySpanS="0"
+							columnsXL="1"
+							columnsL="1"
+							columnsM="1"
+							singleContainerFullSize="false"
+						/>
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement label="Weigh Mesaure">
+									<f:fields>
+										<Input value=""/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Weigh Unit">
+									<f:fields>
+										<Input value="KG"/>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+				<f:Form id="FormChange356"
+					editable="true" class="sapUiSmallMarginTop">
+					<f:title>
+						<core:Title text="Details"/>
+					</f:title>
+					<f:layout>
+                    <f:ResponsiveGridLayout
+							labelSpanXL="3"
+							labelSpanL="3"
+							labelSpanM="3"
+							labelSpanS="12"
+							adjustLabelSpan="false"
+							emptySpanXL="4"
+							emptySpanL="4"
+							emptySpanM="4"
+							emptySpanS="0"
+							columnsXL="1"
+							columnsL="1"
+							columnsM="1"
+							singleContainerFullSize="false"
+						/>
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+							<f:FormElement label="DateOfSale">
+								<f:fields>
+									<Input value=""/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Status">
+								<f:fields>
+									<Input value=""/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Quantity">
+								<f:fields>
+									<Input value=""/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Currency Code">
+								<f:fields>
+									<Input value=""/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Price">
+								<f:fields>
+									<Input value=""/>
+								</f:fields>
+							</f:FormElement>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+			</VBox>
+		</content>
+	</Page>
 </mvc:View>
