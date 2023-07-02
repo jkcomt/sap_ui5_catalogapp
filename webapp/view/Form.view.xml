@@ -13,10 +13,7 @@
 	>
 		<content>
 			<VBox class="sapUiSmallMargin">
-				<f:Form
-					id="FormChange354"
-					editable="true"
-				>
+				<f:Form id="FormChange354" editable="true">
 					<f:title>
 						<core:Title text="Address"/>
 					</f:title>
@@ -42,23 +39,29 @@
 							<f:formElements>
 								<f:FormElement label="Product ID">
 									<f:fields>
-										<Input
-											value="{
-											}"
-											id="producid"
-										/>
+										<Input value="" id="producid" />
 									</f:fields>
 								</f:FormElement>
 								<f:FormElement label="Main Category - Category">
 									<f:fields>
-										<Input value="{
-										}"/>
-										<Input value="{
-										}">
+										<!-- <Input value=""/>  -->
+										<ComboBox
+											items="{
+												path: '/MainCategoriesCollection',
+												sorter: { path: 'text' }
+											}">
+											<core:Item key="{key}" text="{mainCategory}" />
+										</ComboBox>
+										<ComboBox
+											items="{
+												path: '/CategoriesCollection',
+												sorter: { path: 'text' }
+											}">
+											<core:Item key="{key}" text="{category}" />
 											<layoutData>
 												<l:GridData span="XL1 L2 M2 S4"/>
 											</layoutData>
-										</Input>
+										</ComboBox>
 									</f:fields>
 								</f:FormElement>
 								<f:FormElement label="Name">
@@ -66,25 +69,21 @@
 										<Input value=""/>
 									</f:fields>
 								</f:FormElement>
-								<f:FormElement label="Descripction">
+								<f:FormElement label="Description">
 									<f:fields>
 										<Input value=""/>
 									</f:fields>
 								</f:FormElement>
 								<f:FormElement label="Supplier Name">
 									<f:fields>
-										<Input value="{
-										}"/>
+										<Input value=""/>
 									</f:fields>
 								</f:FormElement>
 							</f:formElements>
 						</f:FormContainer>
 					</f:formContainers>
 				</f:Form>
-				<f:Form
-					id="FormChange355"
-					editable="true" class="sapUiSmallMarginTop"
-				>
+				<f:Form id="FormWeigh" editable="true" class="sapUiSmallMarginTop" >
 					<f:title>
 						<core:Title text="Weigh"/>
 					</f:title>
@@ -115,14 +114,17 @@
 								</f:FormElement>
 								<f:FormElement label="Weigh Unit">
 									<f:fields>
-										<Input value="KG"/>
+										<RadioButtonGroup id="groupWeigh" columns="2" valueState="Success">
+											<RadioButton text="KG" selected="true" />
+											<RadioButton text="LB" />
+										</RadioButtonGroup>
 									</f:fields>
 								</f:FormElement>
 							</f:formElements>
 						</f:FormContainer>
 					</f:formContainers>
 				</f:Form>
-				<f:Form id="FormChange356"
+				<f:Form id="FormDetails"
 					editable="true" class="sapUiSmallMarginTop">
 					<f:title>
 						<core:Title text="Details"/>
@@ -148,12 +150,20 @@
 						<f:FormContainer>
 							<f:FormElement label="DateOfSale">
 								<f:fields>
-									<Input value=""/>
+									<DatePicker
+										id="dateSale"
+										placeholder="Enter Date"
+										change="handleChange"
+										class="sapUiSmallMarginBottom"/>
 								</f:fields>
 							</f:FormElement>
-							<f:FormElement label="Status">
+							<f:FormElement label="Available">
 								<f:fields>
-									<Input value=""/>
+									<Switch state="true" customTextOn="YES" customTextOff="NO">
+										<layoutData>
+											<FlexItemData growFactor="1" />
+										</layoutData>
+									</Switch>
 								</f:fields>
 							</f:FormElement>
 							<f:FormElement label="Quantity">
@@ -163,7 +173,10 @@
 							</f:FormElement>
 							<f:FormElement label="Currency Code">
 								<f:fields>
-									<Input value=""/>
+									<RadioButtonGroup id="groupCurrency" columns="2" valueState="Success">
+											<RadioButton text="PEN" selected="true" />
+											<RadioButton text="USD" />
+										</RadioButtonGroup>
 								</f:fields>
 							</f:FormElement>
 							<f:FormElement label="Price">
@@ -176,5 +189,12 @@
 				</f:Form>
 			</VBox>
 		</content>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button text="Submit" press="onPress" type="Accept"/>
+				<Button text="Reject" press="onPress" type="Reject"/>
+			</Toolbar>
+		</footer>
 	</Page>
 </mvc:View>

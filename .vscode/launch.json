@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "appviewcatalog-config",
+      "name": "sap_ui5_catalogapp-config",
       "cwd": "${workspaceFolder}",
       "runtimeArgs": [
         "fiori",
@@ -22,7 +22,7 @@
       "internalConsoleOptions": "openOnSessionStart",
       "outputCapture": "std",
       "env": {
-        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/appviewcatalog\"}",
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/sap_ui5_catalogapp\"}",
         "FIORI_TOOLS_BACKEND_CONFIG": "[{\"path\":\"/sap\",\"url\":\"http://localhost\"}]",
         "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false"
       }
