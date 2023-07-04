@@ -1,6 +1,8 @@
 {
   "welcomeFile": "/index.html",
   "authenticationMethod": "route",
+
+  
   "routes": [
     {
       "source": "^/resources/(.*)$",
@@ -21,4 +23,5 @@
       "authenticationType": "xsuaa"
     }
   ]
+  
 }

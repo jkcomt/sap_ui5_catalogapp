@@ -7,193 +7,193 @@
 	xmlns:core="sap.ui.core"
 	xmlns:l="sap.ui.layout"
 >
-	<Page
-		id="page"
-		title="{i18n>title}"
-	>
-		<content>
-			<VBox class="sapUiSmallMargin">
-				<f:Form id="FormChange354" editable="true">
-					<f:title>
-						<core:Title text="Address"/>
-					</f:title>
-					<f:layout>
+	<Page id="page" title="{i18n>title}" showNavButton="true" navButtonPress="onNavBack" >
+		<content>			
+			<l:Grid defaultIndent="XL3 L3 M0 S0" defaultSpan="XL6 L6 M12 S12">
+				<VBox class="sapUiSmallMargin" alignContent="SpaceAround">
+					<f:Form id="frmGeneral" editable="true">
+						<f:title>
+							<core:Title text="General Info"/>
+						</f:title>
+						<f:layout>
+							<f:ResponsiveGridLayout
+								labelSpanXL="3"
+								labelSpanL="3"
+								labelSpanM="3"
+								labelSpanS="12"
+								adjustLabelSpan="false"
+								emptySpanXL="4"
+								emptySpanL="4"
+								emptySpanM="4"
+								emptySpanS="0"
+								columnsXL="1"
+								columnsL="1"
+								columnsM="1"
+								singleContainerFullSize="false"
+							/>
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="Product ID">
+										<f:fields>
+											<Input id="txtProductId" value=""/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Main Category - Category">
+										<f:fields>										
+											<ComboBox
+												id="cboMainCategory"
+												items="{
+													path: 'mProduct>/MainCategories',
+													sorter: { path: 'text' }
+												}">
+												<core:Item key="{mProduct>key}" text="{mProduct>text}" />
+											</ComboBox>
+											<ComboBox
+												id="cboCategory"
+												items="{
+													path: 'mProduct>/Categories',
+													sorter: { path: 'text' }
+												}">
+												<core:Item key="{mProduct>key}" text="{mProduct>text}" />
+												<layoutData>
+													<l:GridData span="XL1 L2 M2 S4"/>
+												</layoutData>
+											</ComboBox>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Name">
+										<f:fields>
+											<Input id="txtName" value=""/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Description">
+										<f:fields>
+											<Input id="txtDescription" value=""/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Supplier Name">
+										<f:fields>
+											<Input id="txtSupplierName" value=""/>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+					<f:Form id="frmWeigh" editable="true" class="sapUiSmallMarginTop" >
+						<f:title>
+							<core:Title text="Weight"/>
+						</f:title>
+						<f:layout>
+							<f:ResponsiveGridLayout
+								labelSpanXL="3"
+								labelSpanL="3"
+								labelSpanM="3"
+								labelSpanS="12"
+								adjustLabelSpan="false"
+								emptySpanXL="4"
+								emptySpanL="4"
+								emptySpanM="4"
+								emptySpanS="0"
+								columnsXL="1"
+								columnsL="1"
+								columnsM="1"
+								singleContainerFullSize="false"
+							/>
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="Weight Mesaure">
+										<f:fields>
+											<Input id="txtWeightMesaure" value=""/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Weight Unit">
+										<f:fields>
+											<RadioButtonGroup id="rbgWeightUnit" columns="2">
+												<RadioButton text="KG" selected="true" />
+												<RadioButton text="LB" />
+											</RadioButtonGroup>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+					<f:Form id="frmDetails"
+						editable="true" class="sapUiSmallMarginTop">
+						<f:title>
+							<core:Title text="Details"/>
+						</f:title>
+						<f:layout>
 						<f:ResponsiveGridLayout
-							labelSpanXL="3"
-							labelSpanL="3"
-							labelSpanM="3"
-							labelSpanS="12"
-							adjustLabelSpan="false"
-							emptySpanXL="4"
-							emptySpanL="4"
-							emptySpanM="4"
-							emptySpanS="0"
-							columnsXL="1"
-							columnsL="1"
-							columnsM="1"
-							singleContainerFullSize="false"
-						/>
-					</f:layout>
-					<f:formContainers>
-						<f:FormContainer>
-							<f:formElements>
-								<f:FormElement label="Product ID">
+								labelSpanXL="3"
+								labelSpanL="3"
+								labelSpanM="3"
+								labelSpanS="12"
+								adjustLabelSpan="false"
+								emptySpanXL="4"
+								emptySpanL="4"
+								emptySpanM="4"
+								emptySpanS="0"
+								columnsXL="1"
+								columnsL="1"
+								columnsM="1"
+								singleContainerFullSize="false"
+							/>
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:FormElement label="Date Of Sale">
 									<f:fields>
-										<Input value="" id="producid" />
+										<DatePicker
+											id="dtSale"
+											placeholder="Enter Date"
+											change="handleChange"
+											class="sapUiSmallMarginBottom"/>
 									</f:fields>
 								</f:FormElement>
-								<f:FormElement label="Main Category - Category">
+								<f:FormElement label="Available Status">
 									<f:fields>
-										<!-- <Input value=""/>  -->
-										<ComboBox
-											items="{
-												path: '/MainCategoriesCollection',
-												sorter: { path: 'text' }
-											}">
-											<core:Item key="{key}" text="{mainCategory}" />
-										</ComboBox>
-										<ComboBox
-											items="{
-												path: '/CategoriesCollection',
-												sorter: { path: 'text' }
-											}">
-											<core:Item key="{key}" text="{category}" />
+										<Switch id="swtStatus" state="true" customTextOn="YES" customTextOff="NO">
 											<layoutData>
-												<l:GridData span="XL1 L2 M2 S4"/>
+												<FlexItemData growFactor="1" />
 											</layoutData>
-										</ComboBox>
+										</Switch>
 									</f:fields>
 								</f:FormElement>
-								<f:FormElement label="Name">
+								<f:FormElement label="Quantity">
 									<f:fields>
-										<Input value=""/>
+										<Input id="txtQuantity" value=""/>
 									</f:fields>
 								</f:FormElement>
-								<f:FormElement label="Description">
+								<f:FormElement label="Currency Code">
 									<f:fields>
-										<Input value=""/>
+										<RadioButtonGroup id="rbgCurrency" columns="2" valueState="Success">
+												<RadioButton text="EUR" selected="true" />
+												<RadioButton text="USD" />
+											</RadioButtonGroup>
 									</f:fields>
 								</f:FormElement>
-								<f:FormElement label="Supplier Name">
+								<f:FormElement label="Price">
 									<f:fields>
-										<Input value=""/>
+										<Input id="txtPrice" value=""/>
 									</f:fields>
 								</f:FormElement>
-							</f:formElements>
-						</f:FormContainer>
-					</f:formContainers>
-				</f:Form>
-				<f:Form id="FormWeigh" editable="true" class="sapUiSmallMarginTop" >
-					<f:title>
-						<core:Title text="Weigh"/>
-					</f:title>
-					<f:layout>
-						<f:ResponsiveGridLayout
-							labelSpanXL="3"
-							labelSpanL="3"
-							labelSpanM="3"
-							labelSpanS="12"
-							adjustLabelSpan="false"
-							emptySpanXL="4"
-							emptySpanL="4"
-							emptySpanM="4"
-							emptySpanS="0"
-							columnsXL="1"
-							columnsL="1"
-							columnsM="1"
-							singleContainerFullSize="false"
-						/>
-					</f:layout>
-					<f:formContainers>
-						<f:FormContainer>
-							<f:formElements>
-								<f:FormElement label="Weigh Mesaure">
-									<f:fields>
-										<Input value=""/>
-									</f:fields>
-								</f:FormElement>
-								<f:FormElement label="Weigh Unit">
-									<f:fields>
-										<RadioButtonGroup id="groupWeigh" columns="2" valueState="Success">
-											<RadioButton text="KG" selected="true" />
-											<RadioButton text="LB" />
-										</RadioButtonGroup>
-									</f:fields>
-								</f:FormElement>
-							</f:formElements>
-						</f:FormContainer>
-					</f:formContainers>
-				</f:Form>
-				<f:Form id="FormDetails"
-					editable="true" class="sapUiSmallMarginTop">
-					<f:title>
-						<core:Title text="Details"/>
-					</f:title>
-					<f:layout>
-                    <f:ResponsiveGridLayout
-							labelSpanXL="3"
-							labelSpanL="3"
-							labelSpanM="3"
-							labelSpanS="12"
-							adjustLabelSpan="false"
-							emptySpanXL="4"
-							emptySpanL="4"
-							emptySpanM="4"
-							emptySpanS="0"
-							columnsXL="1"
-							columnsL="1"
-							columnsM="1"
-							singleContainerFullSize="false"
-						/>
-					</f:layout>
-					<f:formContainers>
-						<f:FormContainer>
-							<f:FormElement label="DateOfSale">
-								<f:fields>
-									<DatePicker
-										id="dateSale"
-										placeholder="Enter Date"
-										change="handleChange"
-										class="sapUiSmallMarginBottom"/>
-								</f:fields>
-							</f:FormElement>
-							<f:FormElement label="Available">
-								<f:fields>
-									<Switch state="true" customTextOn="YES" customTextOff="NO">
-										<layoutData>
-											<FlexItemData growFactor="1" />
-										</layoutData>
-									</Switch>
-								</f:fields>
-							</f:FormElement>
-							<f:FormElement label="Quantity">
-								<f:fields>
-									<Input value=""/>
-								</f:fields>
-							</f:FormElement>
-							<f:FormElement label="Currency Code">
-								<f:fields>
-									<RadioButtonGroup id="groupCurrency" columns="2" valueState="Success">
-											<RadioButton text="PEN" selected="true" />
-											<RadioButton text="USD" />
-										</RadioButtonGroup>
-								</f:fields>
-							</f:FormElement>
-							<f:FormElement label="Price">
-								<f:fields>
-									<Input value=""/>
-								</f:fields>
-							</f:FormElement>
-						</f:FormContainer>
-					</f:formContainers>
-				</f:Form>
-			</VBox>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+				</VBox>
+			</l:Grid>			
 		</content>
 		<footer>
 			<Toolbar>
 				<ToolbarSpacer/>
-				<Button text="Submit" press="onPress" type="Accept"/>
-				<Button text="Reject" press="onPress" type="Reject"/>
+				<Button text="Submit" press="onSubmit" type="Accept"/>
+				<Button text="Reject" press="onReject" type="Reject"/>
 			</Toolbar>
 		</footer>
 	</Page>

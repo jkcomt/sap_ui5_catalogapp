@@ -1,7 +1,7 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-    "sap/ui/core/UIComponent",
-    "sap/ui/core/routing/History",
+  "sap/ui/core/UIComponent",
+  "sap/ui/core/routing/History",
 	"sap/ui/model/json/JSONModel"
 ], function(
 	Controller,
@@ -30,6 +30,10 @@ sap.ui.define([
               this.getRouter().navTo("RouteMain");
             }
         },
+
+        getById: function(sId){
+          return this.getView().byId(sId);
+        }
 
         // getNavHistory: function(){
         //     let oHistory;
