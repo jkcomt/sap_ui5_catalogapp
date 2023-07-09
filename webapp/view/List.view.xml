@@ -10,7 +10,7 @@
                     <SearchField liveChange=".onSearch" width="100%"/>
                 </OverflowToolbar>
              
-                <!-- <List 
+                <List 
                     id="listProducts"
                     items="{path:'mProduct>/ProductCollection'}" 
                     mode="SingleSelectMaster" 
@@ -22,7 +22,7 @@
                         description="{mProduct>Description}" 
                         icon="{mProduct>ProductPicUrl}" 
                         type="Active" />
-                </List> -->
+                </List>
 
                 <List items="{/Products}">
                     <StandardListItem title="{ProductName}"/>
