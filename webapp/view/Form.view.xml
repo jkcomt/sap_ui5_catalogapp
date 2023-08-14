@@ -142,6 +142,16 @@
                                         </f:fields>
                                     </f:FormElement>
 
+                                    <f:FormElement label="Available Status">
+                                        <f:fields>
+                                            <Switch id="swStatus" state="true" customTextOn="YES" customTextOff="NO">
+                                                <layoutData>
+                                                    <FlexItemData growFactor="1"/>
+                                                </layoutData>
+                                            </Switch>
+                                        </f:fields>
+                                    </f:FormElement>
+
                                     <f:FormElement label="Quantity">
                                         <f:fields>
                                             <Input id="txtQuantity" value=""/>
