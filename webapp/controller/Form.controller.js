@@ -39,6 +39,37 @@ sap.ui.define([
                 this.getView().setModel(oNewProduct, "mNewProduct");
             },
 
+            validateFields: function(){
+                var aForms = ["frmGeneral","frmWeigh","frmDetails"];
+                var aValidated = [];
+                aForms.forEach(oForm=>{
+                    let aformElements = this.getView().byId(oForm).getFormContainers()[0].getFormElements();
+                    aformElements.forEach(aFElements=>{
+                        let aFields =  aFElements.getFields();
+                            aFields.forEach(aField=>{
+                                if(aField.getValue){
+                                    let oFieldID = aField.getId().split("Form--")[1];
+                                    let validate = aField.getValue() !== "" ? true : false;
+                                    if(!validate){
+                                        aValidated.push({idField: aField.getId().split("Form--")[1], state: validate});
+                                        console.log(`aField ${aField.getId().split("Form--")[1]} - ${validate}`);
+                                        this.getById(oFieldID).setValueState("Error");
+                                    }
+                                }
+                            })
+                    })   
+                });
+
+                return aValidated.length;
+            },
+
+            changeValueState: function(oEvent){
+                let oValue = oEvent.getSource().getValue();
+                if(oValue){
+                    oEvent.getSource().setValueState("None");
+                }
+            },
+
             getValues: function(){             
 
                 let productId     = this.getById("txtProductId").getValue();                
@@ -53,7 +84,7 @@ sap.ui.define([
                 let status        = this.getById("swtStatus").getState() ? "Available" : "Not Available";
                 let quantity      = this.getById("txtQuantity").getValue();
                 let currencyCode  = this.getById("rbgCurrency").getSelectedIndex() == 0 ? "EUR" : "USD";
-                let price         = this.getById("txtPrice").getValue();
+                let price         = this.getById("txtPrice").getValue();                
 
                 let newProduct = {
                     "ProductId": productId,
@@ -99,6 +130,13 @@ sap.ui.define([
 
             onSubmit: function(){
                 const _this = this;
+                
+                let nValidatedFields = this.validateFields();
+
+                if(nValidatedFields){
+                    return;
+                }
+
                 let newProduct = this.getValues();
 
                 let aProductColl = this.getView().getModel("mProduct").getData().ProductCollection;
