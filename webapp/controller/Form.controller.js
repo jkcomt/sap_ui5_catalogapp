@@ -57,6 +57,29 @@ sap.ui.define([
 
             },
 
+            validateFields: function(){
+                var aForms = ["frmGeneral","frmWeight","frmDetails"];
+                var aValidated = [];
+                aForms.forEach(oForm=>{
+                    let aformElements = this.getView().byId(oForm).getFormContainers()[0].getFormElements();
+                    aformElements.forEach(aFElements=>{
+                        let aFields = aFElements.getFields();
+                            aFields.forEach(aField=>{
+                                if(aField.getValue){
+                                    let oFieldID = aField.getId().split("Form--")[1];
+                                    let validate = aField.getValue() !== "" ? true : false;
+                                    
+                                    if(!validate){
+                                        aValidated.push({idField:oFieldID, state: validate});
+                                        this.getById(oFieldID).setValueState("Error");
+                                    }
+                                }
+                            });
+                    })
+                });
+                return aValidated.length;
+            },
+
             clearInputs: function(){
 
                 this.getById("txtProducId").setValue("");
@@ -80,8 +103,22 @@ sap.ui.define([
                 this.onNavTo("RouteMain");
             },
 
+            changeValueState: function(oEvent){
+                let oValue = oEvent.getSource().getValue();
+                if(oValue){
+                    oEvent.getSource().setValueState("None");
+                }
+            },
+
             onSubmit: function(){
                 const _this = this;
+
+                let nValidatedFields = this.validateFields();
+
+                if(nValidatedFields){
+                    return;
+                }
+
                 let newProduct = this.getValues();
                 
                 let aProductColl = this.getView().getModel("mProduct").getData().ProductCollection;
