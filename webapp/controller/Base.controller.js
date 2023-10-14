@@ -2,12 +2,14 @@ sap.ui.define([
 	"sap/ui/core/mvc/Controller",
   "sap/ui/core/UIComponent",
   "sap/ui/core/routing/History",
-	"sap/ui/model/json/JSONModel"
+	"sap/ui/model/json/JSONModel",
+  "sap/ui/core/Core"
 ], function(
 	Controller,
 	UIComponent,
 	History,
-	JSONModel
+	JSONModel,
+  Core
 ) {
 	"use strict";
 
@@ -33,6 +35,23 @@ sap.ui.define([
 
         getById: function(sId){
           return this.getView().byId(sId);
+        },
+
+        _initTheme: function(){
+          if(localStorage.getItem("tipoTema")){
+            Core.applyTheme(localStorage.getItem("tipoTema"));
+          }
+        },
+
+        onTheme: function(oEvent){
+          let theme = oEvent.getSource().data("tipoTema");
+          if(theme=="L"){
+            Core.applyTheme("sap_horizon");
+            localStorage.setItem("tipoTema", "sap_horizon");
+          }else{
+            Core.applyTheme("sap_horizon_dark");
+            localStorage.setItem("tipoTema", "sap_horizon_dark");
+          }
         }
 
         // getNavHistory: function(){
