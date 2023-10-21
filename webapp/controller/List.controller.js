@@ -135,7 +135,7 @@ sap.ui.define([
                 this.getById("rbgWeightUnit").setSelectedIndex(0);
                 this.getById("dtSale").setValue("");
                 this.getById("swtStatus").setState(true);
-                this.getById("txtQuantity").getValue("");
+                this.getById("txtQuantity").setValue("");
                 this.getById("rbgCurrency").setSelectedIndex(0);
                 this.getById("txtPrice").setValue("");
             },
