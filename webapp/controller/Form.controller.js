@@ -160,7 +160,7 @@ sap.ui.define([
             clearNavBack: function(){
                 this.clearInputs();
                 this.navTo("RouteMain");
-            }
+            }           
             
         });
     });

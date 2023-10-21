@@ -1,0 +1,194 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:c="sap.ui.core"
+    xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+    <Dialog title="Formulario" id="frgDialogForm">
+        <content>
+            <VBox class="sapUiSmallMargin" alignContent="SpaceAround">
+					<f:Form id="frmGeneral" editable="true">
+						<f:title>
+							<c:Title text="General Info"/>
+						</f:title>
+						<f:layout>
+							<f:ResponsiveGridLayout
+								labelSpanXL="12"
+								labelSpanL="12"
+								labelSpanM="12"
+								labelSpanS="12"
+								adjustLabelSpan="false"
+								emptySpanXL="0"
+								emptySpanL="0"
+								emptySpanM="0"
+								emptySpanS="0"
+								columnsXL="1"
+								columnsL="1"
+								columnsM="1"
+								singleContainerFullSize="false"
+							/>
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="Product ID">
+										<f:fields>
+											<Input id="txtProductId" value="" change="changeValueState"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Main Category - Category">
+										<f:fields>										
+											<ComboBox
+												id="cboMainCategory"
+												items="{
+													path: 'mProduct>/MainCategories',
+													sorter: { path: 'text' }
+												}" change="changeValueState">
+												<c:Item key="{mProduct>key}" text="{mProduct>text}" />
+											</ComboBox>
+											<ComboBox
+												id="cboCategory"
+												items="{
+													path: 'mProduct>/Categories',
+													sorter: { path: 'text' }
+												}" change="changeValueState">
+												<c:Item key="{mProduct>key}" text="{mProduct>text}" />
+												<layoutData>
+													<l:GridData span="XL1 L2 M2 S4"/>
+												</layoutData>
+											</ComboBox>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Name">
+										<f:fields>
+											<Input id="txtName" value="" change="changeValueState"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Description">
+										<f:fields>
+											<Input id="txtDescription" value="" change="changeValueState"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Supplier Name">
+										<f:fields>
+											<Input id="txtSupplierName" value="" change="changeValueState"/>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+					<f:Form id="frmWeigh" editable="true" class="sapUiSmallMarginTop" >
+						<f:title>
+							<c:Title text="Weight"/>
+						</f:title>
+						<f:layout>
+							<f:ResponsiveGridLayout
+								labelSpanXL="12"
+								labelSpanL="12"
+								labelSpanM="12"
+								labelSpanS="12"
+								adjustLabelSpan="false"
+								emptySpanXL="0"
+								emptySpanL="0"
+								emptySpanM="0"
+								emptySpanS="0"
+								columnsXL="1"
+								columnsL="1"
+								columnsM="1"
+								singleContainerFullSize="false"
+							/>
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="Weight Measure">
+										<f:fields>
+											<Input id="txtWeightMesaure" value="" change="changeValueState" type="Number"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Weight Unit">
+										<f:fields>
+											<RadioButtonGroup id="rbgWeightUnit" columns="2">
+												<RadioButton text="KG" selected="true" />
+												<RadioButton text="LB" />
+											</RadioButtonGroup>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+					<f:Form id="frmDetails"
+						editable="true" class="sapUiSmallMarginTop">
+						<f:title>
+							<c:Title text="Details"/>
+						</f:title>
+						<f:layout>
+						<f:ResponsiveGridLayout
+								labelSpanXL="12"
+								labelSpanL="12"
+								labelSpanM="12"
+								labelSpanS="12"
+								adjustLabelSpan="false"
+								emptySpanXL="0"
+								emptySpanL="0"
+								emptySpanM="0"
+								emptySpanS="0"
+								columnsXL="1"
+								columnsL="1"
+								columnsM="1"
+								singleContainerFullSize="false"
+							/>
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:FormElement label="Date Of Sale">
+									<f:fields>
+										<DatePicker
+											id="dtSale"
+											placeholder="Enter Date"
+											change="changeValueState"
+											class="sapUiSmallMarginBottom" />
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Available Status">
+									<f:fields>
+										<Switch id="swtStatus" state="true" customTextOn="YES" customTextOff="NO">
+											<layoutData>
+												<FlexItemData growFactor="1" />
+											</layoutData>
+										</Switch>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Quantity">
+									<f:fields>
+										<Input id="txtQuantity" value="" type="Number" change="changeValueState"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Currency Code">
+									<f:fields>
+										<RadioButtonGroup id="rbgCurrency" columns="2" valueState="Success">
+												<RadioButton text="EUR" selected="true" />
+												<RadioButton text="USD" />
+											</RadioButtonGroup>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Price">
+									<f:fields>
+										<Input id="txtPrice" value="" type="Number" change="changeValueState"/>
+									</f:fields>
+								</f:FormElement>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+				</VBox>
+        </content>
+        <footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button text="Submit" press="onSubmit" type="Accept"/>
+				<Button text="Reject" press="onReject" type="Reject"/>
+			</Toolbar>
+		</footer>		
+    </Dialog>
+</c:FragmentDefinition>
