@@ -10,10 +10,10 @@
             <VBox class="sapUiContentPadding sapUiSmallMargin">
 
                 <OverflowToolbar>
-                    <SearchField liveChange=".onSearch" width="100%"/>
+                    <SearchField liveChange=".onSearchNorthwind" width="100%"/>
                 </OverflowToolbar>
 
-                <List 
+                <!-- <List 
                     id="listProducts"
                     items="{path:'mProduct>/ProductCollection'}" 
                     mode="SingleSelectMaster" 
@@ -25,7 +25,16 @@
                         description="{mProduct>Description}" 
                         icon="{mProduct>ProductPicUrl}" 
                         type="Active" />
+                </List> -->
+                
+                <List items="{path:'mNorthwind>/Products'}"
+                    id="listProducts"
+                    growing="true" 
+                    growingThreshold="10"
+                >
+                    <StandardListItem title="{mNorthwind>ProductID} - {mNorthwind>ProductName}" />
                 </List>
+
             </VBox>
         </content>
     </Page>
