@@ -43,6 +43,30 @@ sap.ui.define([
                 oBinding.filter(aFilters)
             },
 
+            onSearchFromDB: function(oEvent){
+                let aFilters = [];
+                let sQuery = oEvent.getSource().getValue();
+                
+                if(sQuery && sQuery.length > 0){
+                    let filter = new Filter("ProductName", FilterOperator.Contains, sQuery);
+                    aFilters.push(filter);
+                }
+
+                // let oList = this.byId("listProducts");
+                // let oBinding = oList.getBinding("items");
+                // oBinding.filter(aFilters)
+
+                //leer del Odata
+                    // var mNorthwind = this.getOwnerComponent().getModel("mNorthwind");
+                    // mNorthwind.read("/Products",{
+                    //     filters: aFilters,
+                    //     success: (result)=>{
+                    //         debugger;
+                            
+                    //     }
+                    // });  
+            },
+
             onOpenDialog: function(){
                 this.fDialog ??= this.loadFragment({
                     name: "appviewcatalog.view.fragments.DialogForm"

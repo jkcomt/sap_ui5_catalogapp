@@ -11,25 +11,29 @@
                 <!-- <Breadcrumbs id="navHistory"/> -->
                
                 <OverflowToolbar>
-                    <SearchField liveChange=".onSearch" width="100%"/>
+                    <SearchField liveChange=".onSearchFromDB" width="100%"/>
                 </OverflowToolbar>
              
-                <List 
-                    id="listProducts"
-                    items="{path:'mProduct>/ProductCollection'}" 
-                    mode="SingleSelectMaster" 
-                    itemPress="onPressProduct" 
-                    growing="true" 
-                    growingThreshold="10" 
-                    growingScrollToLoad="false">                   
-                    <StandardListItem title="{mProduct>Name}" 
-                        description="{mProduct>Description}" 
-                        icon="{mProduct>ProductPicUrl}" 
-                        type="Active" />
-                </List>
+                    <!-- <List 
+                        id="listProducts"
+                        items="{path:'mProduct>/ProductCollection'}" 
+                        mode="SingleSelectMaster" 
+                        itemPress="onPressProduct" 
+                        growing="true" 
+                        growingThreshold="10" 
+                        growingScrollToLoad="false">                   
+                        <StandardListItem title="{mProduct>Name}" 
+                            description="{mProduct>Description}" 
+                            icon="{mProduct>ProductPicUrl}" 
+                            type="Active" />
+                    </List> -->
 
-                <List items="{/Products}">
-                    <StandardListItem title="{ProductName}"/>
+                <List items="{path:'mNorthwind>/Products'}"
+                    id="listProducts"
+                    growing="true" 
+                    growingThreshold="10"
+                >
+                    <StandardListItem title="{mNorthwind>ProductName} - {mNorthwind>UnitPrice}" />
                 </List>
             </VBox>
         </content>
